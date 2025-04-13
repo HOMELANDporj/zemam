@@ -1,127 +1,137 @@
 :root {
-    --gold: #FFD700;
-    --black: #111111;
-    --text-light: #f5f5f5;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border-gold-glow: rgba(255, 215, 0, 0.4);
+  --gold: #FFD700;
+  --black: #111111;
+  --text-light: #f5f5f5;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border-gold-glow: rgba(255, 215, 0, 0.4);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--black);
+  color: var(--text-light);
+}
+
+.zemam-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+}
+
+.zemam-header {
+  text-align: center;
+  padding: 20px 20px 10px; /* Corrected invalid negative padding */
+  border-bottom: 1px solid var(--border-gold-glow);
+  backdrop-filter: blur(8px);
+  overflow-x: hidden;
+}
+
+.zemam-logo {
+  width: 700px;
+  max-width: 100%; /* Prevent overflow on small screens */
+  height: auto;
+  margin-bottom: -150px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 0px var(--gold));
   }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
-    background-color: var(--black);
-    color: var(--text-light);
+  to {
+    filter: drop-shadow(0 0 10px var(--gold));
   }
-  
-  .zemam-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
-  }
-  
-  .zemam-header {
-    text-align: center;
-    padding: -10px 20px 20px; /* reduced from 60px top */
-    border-bottom: 1px solid var(--border-gold-glow);
-    backdrop-filter: blur(8px);
-  }
-  
-  .zemam-logo {
-    width: 700px; /* Bigger size */
-    height: auto;
-    margin-bottom: -150px; /* Less space under the logo */
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-  
-  @keyframes glow {
-    from {
-      filter: drop-shadow(0 0 0px var(--gold));
-    }
-    to {
-      filter: drop-shadow(0 0 10px var(--gold));
-    }
-  }
-  
-  .zemam-title {
-    font-size: 3.8rem;
-    font-weight: bold;
-    color: var(--gold);
-    text-shadow: 0 0 10px var(--gold);
-  }
-  
-  .zemam-tagline {
-    font-size: 1.1rem;
-    color: #d4af37;
-    margin-top: 10px;
-  }
-  
+}
+
+.zemam-title {
+  font-size: 3.8rem;
+  font-weight: bold;
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold);
+}
+
+.zemam-tagline {
+  font-size: 1.1rem;
+  color: #d4af37;
+  margin-top: 10px;
+}
+
+.zemam-main {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.zemam-card {
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 16px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-gold-glow);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.zemam-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px var(--gold);
+}
+
+.zemam-card h2 {
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.zemam-card p,
+.zemam-contact-list {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+}
+
+.zemam-contact-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 16px;
+}
+
+.zemam-contact-list li {
+  margin-bottom: 10px;
+}
+
+.zemam-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  border-top: 1px solid var(--border-gold-glow);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ✅ Responsive Fixes Without Shrinking Font/Logo */
+@media (max-width: 768px) {
   .zemam-main {
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    flex: 1;
+    padding: 20px 10px;
   }
-  
+
   .zemam-card {
-    width: 100%;
-    max-width: 800px;
-    padding: 30px;
-    border-radius: 16px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-gold-glow);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .zemam-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px var(--gold);
-  }
-  
-  .zemam-card h2 {
-    color: var(--gold);
-    font-size: 1.6rem;
-    margin-bottom: 16px;
-  }
-  
-  .zemam-card p,
-  .zemam-contact-list {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    color: #e0e0e0;
-  }
-  
-  .zemam-contact-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 16px;
-  }
-  
-  .zemam-contact-list li {
-    margin-bottom: 10px;
-  }
-  
-  .zemam-footer {
-    text-align: center;
     padding: 20px;
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    border-top: 1px solid var(--border-gold-glow);
-    background: rgba(255, 255, 255, 0.02);
+    width: 100%;
   }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .zemam-title {
-      font-size: 2rem;
-    }
-  
-    .zemam-card {
-      padding: 20px;
-    }
+
+  .zemam-logo {
+    margin-bottom: -100px;
   }
+}
