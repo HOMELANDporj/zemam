@@ -4,53 +4,97 @@
   --text-light: #f5f5f5;
   --glass: rgba(255, 255, 255, 0.03);
   --border-gold-glow: rgba(255, 215, 0, 0.4);
+  --teal: #00796b; /* Teal color */
+  --bg-dark: #111111; /* Dark background */
+  --bg-light: #004D40; /* Light background */
+  --text-dark: #f5f5f5; /* Light text for dark mode */
+  --text-light-mode: #f5f5f5; /* Teal text for light mode */
+  --dark-text: #ffffff; /* White text for dark mode */
+  --dark-bg: #1a1a1a; /* Darker background for better contrast */
+  --dark-border: #333333; /* Dark border for readability */
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', 'Roboto', sans-serif;
-  background-color: var(--black);
-  color: var(--text-light);
+  background-color: var(--bg-dark); /* Default to dark background */
+  color: var(--dark-text); /* Default to white text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light {
+  background-color: var(--bg-light); /* Light background */
+  color: var(--text-light-mode); /* Teal text */
 }
 
 .zemam-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+  background: var(--dark-bg); /* Dark background for wrapper */
+  transition: background 0.9s ease;
+}
+
+body.light .zemam-wrapper {
+  background: var(--bg-light); /* Light theme background */
 }
 
 .zemam-header {
-  text-align: center;
-  padding: 20px 20px 10px; /* Corrected invalid negative padding */
-  border-bottom: 1px solid var(--border-gold-glow);
-  backdrop-filter: blur(8px);
-  overflow-x: hidden;
+  position: relative;
+  height: 30vh; /* Adjust header height to be 60% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /*background: var(--bg-dark);  Dark background for the header */
+  padding: 0;
 }
 
 .zemam-logo {
-  width: 700px;
-  max-width: 100%; /* Prevent overflow on small screens */
-  height: auto;
-  margin-bottom: -150px;
-  animation: glow 2s ease-in-out infinite alternate;
+  width: 100%; /* Logo takes up 80% of the header width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the logo is contained within the header without distortion */
+  animation: glow 2s ease-in-out infinite alternate; /* Glowing effect */
 }
 
+/* Glow animation */
 @keyframes glow {
   from {
     filter: drop-shadow(0 0 0px var(--gold));
   }
   to {
-    filter: drop-shadow(0 0 10px var(--gold));
+    filter: drop-shadow(0 0 20px var(--gold));
+  }
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .zemam-header {
+    height: 50vh; /* Reduce header height for smaller screens */
+  }
+
+  .zemam-logo {
+    width: 60%; /* Make the logo slightly smaller on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .zemam-header {
+    height: 40vh; /* Further reduce header height for very small screens */
+  }
+
+  .zemam-logo {
+    width: 50%; /* Further reduce logo size for mobile devices */
   }
 }
 
 .zemam-title {
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   font-weight: bold;
   color: var(--gold);
   text-shadow: 0 0 10px var(--gold);
+  margin-top: 0;
 }
 
 .zemam-tagline {
@@ -66,8 +110,6 @@ body {
   align-items: center;
   gap: 40px;
   flex: 1;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .zemam-card {
@@ -80,7 +122,6 @@ body {
   border: 1px solid var(--border-gold-glow);
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
 }
 
 .zemam-card:hover {
@@ -96,7 +137,7 @@ body {
 
 .zemam-card p,
 .zemam-contact-list {
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: #e0e0e0;
 }
@@ -120,18 +161,258 @@ body {
   background: rgba(255, 255, 255, 0.02);
 }
 
-/* ✅ Responsive Fixes Without Shrinking Font/Logo */
+.zemam-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.zemam-stats div {
+  text-align: center;
+}
+
+.tech-stack {
+  text-align: center;
+  padding: 40px 20px;
+  /* background: var(--bg-dark); */
+  border-radius: 8px;
+  margin: 40px 0;
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 1.4rem; /* Slightly increase font size */
+  color: var(--text-light);
+}
+
+.tech-icons span {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(255, 215, 0, 0.1); /* Subtle background color */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-icons span:hover {
+  background-color: var(--gold); /* Hover effect */
+  transform: scale(1.1); /* Slight zoom effect */
+  color: var(--black); /* Change text color on hover */
+}
+.project-section {
+  padding: 60px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border-gold-glow);
+  border-bottom: 1px solid var(--border-gold-glow);
+  overflow: hidden;
+  width: 100%;
+}
+
+.project-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--gold);
+  margin-bottom: 40px;
+
+  text-shadow: 0 0 10px var(--gold);
+}
+
+.project-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.project-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 30px;
+  animation: marqueeSlide 40s linear infinite;
+}
+
+@keyframes marqueeSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.project-card {
+  min-width: 280px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-gold-glow);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.08);
+  color: var(--text-light);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--gold);
+}
+
+.zemam-testimonials .testimonial {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 40px;
+  background: var(--glass);
+  border-radius: 16px;
+  border: 1px solid var(--border-gold-glow);
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.08);
+}
+
+.zemam-testimonials p {
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.contact-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  background: #222;
+  border: 1px solid #444;
+  color: var(--text-light);
+  border-radius: 8px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  background: var(--gold);
+  border: none;
+  color: var(--black);
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.chat-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--gold);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-shadow: 0 0 10px var(--gold);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.chat-fab:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--gold);
+  border-radius: 30px;
+  width: 90px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.theme-toggle span {
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+.theme-toggle .toggle-ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--black);
+  transition: transform 0.3s ease;
+}
+
+body.light .toggle-ball {
+  transform: translateX(20px);
+}
+
 @media (max-width: 768px) {
-  .zemam-main {
-    padding: 20px 10px;
+  .zemam-title {
+    font-size: 2rem;
   }
 
   .zemam-card {
     padding: 20px;
-    width: 100%;
   }
 
   .zemam-logo {
-    margin-bottom: -100px;
+    width: 200px;
+  }
+
+  .project-marquee-track {
+    animation-duration: 60s;
+  }
+}
+
+.social-media {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.social-media h3 {
+  font-size: 1.5rem;
+  color: var(--gold); /* Gold color */
+  margin-bottom: 15px;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.social-media-icons li {
+  display: inline-block;
+}
+
+.social-media-icons a {
+  text-decoration: none;
+  color: var(--gold); /* Set color to gold */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media-icons a:hover {
+  transform: scale(1.2);
+  color: var(--gold); /* Ensure gold color is maintained on hover */
+}
+
+@media (max-width: 768px) {
+  .social-media-icons li {
+    margin: 10px;
   }
 }
