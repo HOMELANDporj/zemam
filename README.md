@@ -4,26 +4,40 @@ A modern, responsive website for Zemam Technologies, showcasing our expertise in
 
 ## 🚀 Features
 
+### Core Features
 - **Modern Design**: Clean, professional design with gold and teal color scheme
 - **Fully Responsive**: Optimized for all devices (desktop, tablet, mobile)
 - **Interactive Elements**: 
   - CV modal for Samuel Getnet
   - Service modals with detailed descriptions
   - Project showcase with filtering
-  - Functional contact form
+  - Functional contact form with toast notifications
 - **Performance Optimized**: Fast loading with optimized images and code
-- **SEO Friendly**: Proper meta tags and structured data
-- **PWA Ready**: Progressive Web App capabilities
+- **SEO Friendly**: Proper meta tags, structured data, and sitemap
+- **PWA Ready**: Progressive Web App capabilities with service worker
 - **Analytics**: User interaction tracking
 - **Error Handling**: Graceful error boundaries
+
+### New Enhancements
+- **Toast Notifications**: Success, error, warning, and info messages
+- **Cookie Consent**: GDPR-compliant cookie consent banner
+- **Scroll to Top**: Smooth scroll-to-top button
+- **Loading States**: Beautiful loading spinners
+- **Error Boundaries**: Graceful error handling with user-friendly messages
+- **Service Worker**: Offline support and caching
+- **Lazy Loading**: Image optimization for better performance
+- **Enhanced SEO**: Open Graph, Twitter Cards, structured data
+- **Accessibility**: ARIA labels and keyboard navigation support
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19, React Router, React Icons
 - **Styling**: CSS3 with custom properties and animations
-- **Performance**: Web Vitals monitoring
+- **Performance**: Web Vitals monitoring, lazy loading
 - **Analytics**: Custom analytics utility
+- **PWA**: Service worker for offline support
 - **Build Tool**: Create React App
+- **Development**: ESLint, TypeScript support
 
 ## 📱 Pages
 
@@ -49,9 +63,12 @@ A modern, responsive website for Zemam Technologies, showcasing our expertise in
 ### Components
 - Responsive navigation with mobile menu
 - Modal components for CV and services
-- Contact form with validation
+- Contact form with validation and toast notifications
 - Loading spinners and error boundaries
 - Animated page transitions
+- Toast notification system
+- Cookie consent banner
+- Scroll-to-top button
 
 ## 🚀 Getting Started
 
@@ -85,6 +102,8 @@ npm start
 - `npm run build` - Builds the app for production
 - `npm test` - Launches the test runner
 - `npm run eject` - Ejects from Create React App (one-way operation)
+- `npm run analyze` - Builds and serves the app for analysis
+- `npm run lighthouse` - Runs Lighthouse performance audit
 
 ## 📁 Project Structure
 
@@ -93,7 +112,11 @@ src/
 ├── components/          # Reusable components
 │   ├── ContactForm.jsx
 │   ├── ErrorBoundary.jsx
-│   └── LoadingSpinner.jsx
+│   ├── LoadingSpinner.jsx
+│   ├── Toast.jsx
+│   ├── ToastContext.jsx
+│   ├── CookieConsent.jsx
+│   └── ScrollToTop.jsx
 ├── pages/              # Page components
 │   ├── About.jsx
 │   ├── Careers.jsx
@@ -102,7 +125,8 @@ src/
 │   ├── Services.jsx
 │   └── ZemamPage.jsx
 ├── utils/              # Utility functions
-│   └── analytics.js
+│   ├── analytics.js
+│   └── lazyLoad.js
 ├── assets/             # Images and static files
 ├── App.js              # Main app component
 └── index.js            # Entry point
@@ -122,7 +146,7 @@ src/
 
 ### Contact Form
 - Form validation with error handling
-- Success/error states
+- Toast notifications for success/error states
 - Analytics tracking
 - Responsive design
 
@@ -131,12 +155,32 @@ src/
 - Smooth slide-out animation
 - Company logo in mobile menu
 
+### Toast Notifications
+- Success, error, warning, and info messages
+- Auto-dismiss with configurable duration
+- Multiple toasts support
+- Responsive design
+
+### Cookie Consent
+- GDPR-compliant cookie consent banner
+- Persistent storage of user choice
+- Responsive design
+- Smooth animations
+
+### Scroll to Top
+- Appears when scrolling down
+- Smooth scroll animation
+- Responsive design
+- Hover effects
+
 ## 📊 Performance
 
 - **Lighthouse Score**: 90+ (Performance, Accessibility, Best Practices, SEO)
 - **First Contentful Paint**: < 2s
 - **Largest Contentful Paint**: < 3s
 - **Cumulative Layout Shift**: < 0.1
+- **Service Worker**: Offline support and caching
+- **Lazy Loading**: Optimized image loading
 
 ## 🔧 Customization
 
@@ -155,6 +199,19 @@ src/
 - Page-specific styles in respective CSS files
 - CSS custom properties for easy theming
 
+### Toast Notifications
+```javascript
+import { useToast } from './components/ToastContext';
+
+const { showSuccess, showError, showWarning, showInfo } = useToast();
+
+// Usage
+showSuccess('Operation completed successfully!');
+showError('Something went wrong');
+showWarning('Please check your input');
+showInfo('Here is some information');
+```
+
 ## 📈 Analytics
 
 The website includes analytics tracking for:
@@ -163,6 +220,7 @@ The website includes analytics tracking for:
 - Service modal interactions
 - Contact form submissions
 - Project views
+- Error occurrences
 
 ## 🚀 Deployment
 
@@ -180,6 +238,30 @@ npm run build
 1. Connect your GitHub repository
 2. Vercel will auto-detect React settings
 3. Deploy automatically on push
+
+### Environment Variables
+Create a `.env` file with:
+```
+REACT_APP_CONTACT_EMAIL=your-email@example.com
+REACT_APP_CONTACT_PHONE=your-phone-number
+REACT_APP_GOOGLE_ANALYTICS_ID=your-ga-id
+```
+
+## 🔒 Security
+
+- HTTPS enforcement
+- Content Security Policy
+- XSS protection
+- Secure headers
+- Input validation
+
+## ♿ Accessibility
+
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast support
+- Focus management
 
 ## 🤝 Contributing
 

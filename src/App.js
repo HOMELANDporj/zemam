@@ -8,10 +8,26 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
-import Careers from './pages/Careers';
+import Blog from './pages/Careers';
 import Contact from './pages/Contact';
 import ErrorBoundary from './components/ErrorBoundary';
+import { ToastProvider } from './components/ToastContext';
+import CookieConsent from './components/CookieConsent';
+import ScrollToTop from './components/ScrollToTop';
 import analytics from './utils/analytics';
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +60,7 @@ const Navbar = () => {
           <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>About</NavLink>
           <NavLink to="/services" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>Services</NavLink>
           <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>Projects</NavLink>
-          <NavLink to="/careers" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>Careers</NavLink>
+          <NavLink to="/blog" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>Blog</NavLink>
           <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMenu}>Contact</NavLink>
         </div>
       </div>
@@ -71,7 +87,7 @@ function AnimatedRoutes() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/careers" element={<Careers />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
@@ -83,12 +99,16 @@ function AnimatedRoutes() {
 function App() {
   return (
     <ErrorBoundary>
-      <Router>
-        <Navbar />
-        <div style={{marginTop: '70px'}}>
-          <AnimatedRoutes />
-        </div>
-      </Router>
+      <ToastProvider>
+        <Router>
+          <Navbar />
+          <div style={{marginTop: '70px'}}>
+            <AnimatedRoutes />
+          </div>
+          <ScrollToTop />
+          <CookieConsent />
+        </Router>
+      </ToastProvider>
     </ErrorBoundary>
   );
 }

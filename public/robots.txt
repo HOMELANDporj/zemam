@@ -1,3 +1,20 @@
-# https://www.robotstxt.org/robotstxt.html
+# Robots.txt for Zemam Technologies
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://zemamtechnologies.com/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important pages
+Allow: /about
+Allow: /services
+Allow: /projects
+Allow: /careers
+Allow: /contact
+
+# Crawl delay (optional)
+Crawl-delay: 1

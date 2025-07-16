@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaUser, FaPhone, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { FaEnvelope, FaUser, FaPhone, FaPaperPlane } from 'react-icons/fa';
 import './ContactForm.css';
 import analytics from '../utils/analytics';
+import { useToast } from './ToastContext';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ const ContactForm = () => {
   
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { showSuccess, showError } = useToast();
 
   const validateForm = () => {
     const newErrors = {};
@@ -75,7 +76,10 @@ const ContactForm = () => {
       // Track form submission
       analytics.trackContactForm();
       
-      setIsSubmitted(true);
+      // Show success toast
+      showSuccess('Message sent successfully! We\'ll get back to you within 24 hours.');
+      
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -84,32 +88,13 @@ const ContactForm = () => {
         message: ''
       });
       
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-      
     } catch (error) {
       console.error('Form submission error:', error);
-      setErrors({ submit: 'Failed to send message. Please try again.' });
+      showError('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="contact-form-success">
-        <FaCheckCircle className="success-icon" />
-        <h3>Message Sent Successfully!</h3>
-        <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
-        <button 
-          onClick={() => setIsSubmitted(false)}
-          className="new-message-btn"
-        >
-          Send Another Message
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
@@ -184,8 +169,6 @@ const ContactForm = () => {
         />
         {errors.message && <span className="error-message">{errors.message}</span>}
       </div>
-
-      {errors.submit && <div className="error-message submit-error">{errors.submit}</div>}
 
       <button 
         type="submit" 

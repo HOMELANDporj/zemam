@@ -37,8 +37,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0 0 0 16px;
   padding: 32px 24px 0 24px;
 }
 .zemam-logo {
@@ -62,10 +62,16 @@ body {
   border-color: var(--teal);
 }
 .zemam-hero {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 96px 24px 64px 24px;
+  max-width: 100vw;
+  margin: 0;
+  padding: 32px 24px 64px 24px;
   text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 .zemam-hero-title {
   font-size: 3.2rem;
@@ -109,40 +115,78 @@ body {
   outline: none;
   transform: translateY(-2px) scale(1.04);
 }
-.trusted-bar {
+.core-values-bar {
   display: flex;
   align-items: center;
-  gap: 16px;
   justify-content: center;
   background: none;
-  padding: 0;
-  margin: 32px auto 0 auto;
-  max-width: var(--max-width);
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: var(--teal);
+  padding: 32px 24px;
+  margin: 0 0 0 16px;
+  max-width: 100%;
 }
-.trusted-logos {
+
+.core-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.core-value-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.core-value-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--teal);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 191, 174, 0.15);
+}
+
+.value-icon {
+  margin-bottom: 20px;
   display: flex;
-  gap: 16px;
+  justify-content: center;
   align-items: center;
+  height: 64px;
+  width: 64px;
+  margin: 0 auto 20px;
+  background: rgba(0, 191, 174, 0.1);
+  border-radius: 50%;
+  transition: all var(--transition);
 }
-.partner-logo {
-  height: 28px;
-  width: auto;
-  filter: grayscale(1) brightness(0.7);
-  opacity: 0.7;
-  transition: filter var(--transition), opacity var(--transition), transform var(--transition);
+
+.core-value-item:hover .value-icon {
+  background: rgba(0, 191, 174, 0.2);
+  transform: scale(1.1);
 }
-.partner-logo:hover {
-  filter: grayscale(0) brightness(1);
-  opacity: 1;
-  transform: scale(1.08);
+
+.value-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.value-description {
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin: 0;
 }
 .zemam-main {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 24px;
+  max-width: 100%;
+  margin: 0 0 0 16px;
+  padding: 0;
 }
 .zemam-card, .about-section, .contact-section {
   background: none;
@@ -986,6 +1030,28 @@ a:hover, a:focus {
   .zemam-footer-cover span {
     font-size: 0.95rem;
     margin-top: 8px;
+  }
+  
+  /* Core Values Responsive */
+  .core-values-bar {
+    padding: 24px 16px;
+  }
+  
+  .core-values-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .core-value-item {
+    padding: 24px 20px;
+  }
+  
+  .value-title {
+    font-size: 1.2rem;
+  }
+  
+  .value-description {
+    font-size: 0.95rem;
   }
 }
 

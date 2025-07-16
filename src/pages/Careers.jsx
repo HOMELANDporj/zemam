@@ -1,50 +1,193 @@
-import React from 'react';
-import { FaBriefcase, FaRocket, FaUsers, FaLaptopCode, FaUserGraduate } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaCalendar, FaUser, FaTag, FaArrowRight, FaSearch, FaFilter, FaBookOpen, FaLightbulb, FaRocket, FaChartLine } from 'react-icons/fa';
 import './Careers.css';
 
-const jobs = [
-  { title: 'Frontend Developer', type: 'Full-time', location: 'Remote', desc: 'React, TypeScript, UI/UX.' },
-  { title: 'AI/ML Engineer', type: 'Full-time', location: 'Addis Ababa / Remote', desc: 'Python, TensorFlow, NLP.' },
-  { title: 'UI/UX Designer', type: 'Contract', location: 'Remote', desc: 'Figma, Web & Mobile.' },
-  { title: 'DevOps Engineer', type: 'Full-time', location: 'Remote', desc: 'AWS, Docker, CI/CD.' },
-  { title: 'Intern - Software', type: 'Internship', location: 'Addis Ababa', desc: 'Recent grads, all stacks.' },
+const blogPosts = [
+  {
+    id: 1,
+    title: "The Future of AI in Ethiopian Businesses",
+    excerpt: "How artificial intelligence is transforming traditional business models in Ethiopia and creating new opportunities for growth and innovation.",
+    author: "Samuel Getnet",
+    date: "December 15, 2024",
+    category: "AI & Machine Learning",
+    readTime: "5 min read",
+    image: "https://source.unsplash.com/400x250/?artificial-intelligence",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "Building Scalable Web Applications with React",
+    excerpt: "Best practices for developing modern, scalable web applications using React and modern JavaScript frameworks.",
+    author: "Zemam Team",
+    date: "December 10, 2024",
+    category: "Web Development",
+    readTime: "7 min read",
+    image: "https://source.unsplash.com/400x250/?coding,react"
+  },
+  {
+    id: 3,
+    title: "Digital Transformation in Ethiopian SMEs",
+    excerpt: "A comprehensive guide to helping small and medium enterprises in Ethiopia embrace digital transformation.",
+    author: "Samuel Getnet",
+    date: "December 5, 2024",
+    category: "Digital Transformation",
+    readTime: "6 min read",
+    image: "https://source.unsplash.com/400x250/?business,digital"
+  },
+  {
+    id: 4,
+    title: "Mobile App Development Trends 2024",
+    excerpt: "Exploring the latest trends in mobile app development and what's coming next in the industry.",
+    author: "Zemam Team",
+    date: "November 28, 2024",
+    category: "Mobile Development",
+    readTime: "4 min read",
+    image: "https://source.unsplash.com/400x250/?mobile-app"
+  },
+  {
+    id: 5,
+    title: "Web3 and Blockchain Opportunities in Africa",
+    excerpt: "How blockchain technology and Web3 are creating new opportunities for African businesses and developers.",
+    author: "Samuel Getnet",
+    date: "November 20, 2024",
+    category: "Web3 & Blockchain",
+    readTime: "8 min read",
+    image: "https://source.unsplash.com/400x250/?blockchain"
+  },
+  {
+    id: 6,
+    title: "Cybersecurity Best Practices for Startups",
+    excerpt: "Essential cybersecurity measures that every startup should implement to protect their digital assets.",
+    author: "Zemam Team",
+    date: "November 15, 2024",
+    category: "Cybersecurity",
+    readTime: "6 min read",
+    image: "https://source.unsplash.com/400x250/?cybersecurity"
+  }
 ];
 
-const Careers = () => (
-  <section className="page-section fade-in-section">
-    <h1 className="section-title"><span className="accent-bar"></span>Careers</h1>
-    <hr className="section-divider" />
-    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 32, maxWidth: 900, margin: '0 auto'}}>
-      {jobs.map((j, i) => (
-        <div key={i} className="project-card enhanced fade-in-section" style={{alignItems: 'flex-start', minHeight: 180, background: 'none', color: 'var(--text)'}}>
-          <h3 style={{margin: '0 0 8px 0', color: 'var(--teal)', fontWeight: 700, fontSize: '1.18rem'}}>{j.title}</h3>
-          <div style={{fontSize: '0.98rem', color: 'var(--teal)', marginBottom: 8}}>{j.type} | {j.location}</div>
-          <p style={{color: 'var(--text)', fontSize: '1.05rem', marginBottom: 8, opacity: 0.9}}>{j.desc}</p>
-          <button className="project-btn" style={{marginTop: 'auto'}}>Apply</button>
-        </div>
-      ))}
-    </div>
-    <div style={{marginTop: 48, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto'}}>
-      <h2 className="section-title" style={{marginBottom: 18, marginTop: 32, fontSize: '1.3rem', color: 'var(--gold)'}}><span className="accent-bar"></span>Why Join Zemam?</h2>
-      <ul style={{color: 'var(--text)', fontSize: '1.08rem', lineHeight: 1.7, marginBottom: 24}}>
-        <li><FaUsers color="#00bfae" style={{marginRight: 8}} /> Diverse, global team</li>
-        <li><FaLaptopCode color="#00bfae" style={{marginRight: 8}} /> Remote & flexible work</li>
-        <li><FaUserGraduate color="#FFD700" style={{marginRight: 8}} /> Learning & growth opportunities</li>
-        <li><FaRocket color="#FFD700" style={{marginRight: 8}} /> Work on cutting-edge tech</li>
-      </ul>
-      <form style={{background: 'none', borderRadius: 18, boxShadow: 'none', padding: 32, display: 'flex', flexDirection: 'column', gap: 18}}>
-        <h3 style={{color: 'var(--teal)', fontWeight: 700, marginBottom: 8}}>Quick Application</h3>
-        <input type="text" placeholder="Your Name" required style={{padding: 12, borderRadius: 8, border: '1px solid var(--teal)', fontSize: '1rem', background: 'none', color: 'var(--text)'}} />
-        <input type="email" placeholder="Your Email" required style={{padding: 12, borderRadius: 8, border: '1px solid var(--teal)', fontSize: '1rem', background: 'none', color: 'var(--text)'}} />
-        <textarea placeholder="Why do you want to join?" required style={{padding: 12, borderRadius: 8, border: '1px solid var(--gold)', fontSize: '1rem', minHeight: 60, background: 'none', color: 'var(--text)'}} />
-        <button type="submit" className="project-btn">Submit</button>
-      </form>
-    </div>
-    <footer className="zemam-footer-bg">
-      <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
-      <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
-    </footer>
-  </section>
-);
+const categories = ["All", "AI & Machine Learning", "Web Development", "Digital Transformation", "Mobile Development", "Web3 & Blockchain", "Cybersecurity"];
 
-export default Careers; 
+const Blog = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const featuredPost = blogPosts.find(post => post.featured);
+
+  return (
+    <section className="page-section fade-in-section">
+      <h1 className="section-title"><span className="accent-bar"></span>Insights & Blog</h1>
+      <hr className="section-divider" />
+      
+      {/* Search and Filter */}
+      <div className="blog-controls">
+        <div className="search-box">
+          <FaSearch className="search-icon" />
+          <input
+            type="text"
+            placeholder="Search articles..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+        </div>
+        <div className="category-filter">
+          <FaFilter className="filter-icon" />
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="category-select"
+          >
+            {categories.map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Featured Post */}
+      {featuredPost && selectedCategory === "All" && searchTerm === "" && (
+        <div className="featured-post fade-in-section">
+          <div className="featured-content">
+            <div className="featured-badge">
+              <FaBookOpen />
+              <span>Featured Article</span>
+            </div>
+            <h2 className="featured-title">{featuredPost.title}</h2>
+            <p className="featured-excerpt">{featuredPost.excerpt}</p>
+            <div className="featured-meta">
+              <span><FaUser /> {featuredPost.author}</span>
+              <span><FaCalendar /> {featuredPost.date}</span>
+              <span><FaTag /> {featuredPost.category}</span>
+              <span className="read-time">{featuredPost.readTime}</span>
+            </div>
+            <button className="read-more-btn">
+              Read Full Article <FaArrowRight />
+            </button>
+          </div>
+          <div className="featured-image">
+            <img src={featuredPost.image} alt={featuredPost.title} />
+          </div>
+        </div>
+      )}
+
+      {/* Blog Posts Grid */}
+      <div className="blog-grid">
+        {filteredPosts.map((post) => (
+          <article key={post.id} className="blog-card fade-in-section">
+            <div className="blog-image">
+              <img src={post.image} alt={post.title} />
+              <div className="blog-category">{post.category}</div>
+            </div>
+            <div className="blog-content">
+              <h3 className="blog-title">{post.title}</h3>
+              <p className="blog-excerpt">{post.excerpt}</p>
+              <div className="blog-meta">
+                <span><FaUser /> {post.author}</span>
+                <span><FaCalendar /> {post.date}</span>
+                <span className="read-time">{post.readTime}</span>
+              </div>
+              <button className="read-more-btn">
+                Read More <FaArrowRight />
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {/* Newsletter Signup */}
+      <div className="newsletter-section fade-in-section">
+        <div className="newsletter-content">
+          <FaLightbulb className="newsletter-icon" />
+          <h2>Stay Updated with Latest Insights</h2>
+          <p>Get the latest articles on technology, AI, and digital transformation delivered to your inbox.</p>
+          <form className="newsletter-form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+              className="newsletter-input"
+            />
+            <button type="submit" className="newsletter-btn">
+              Subscribe <FaRocket />
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <footer className="zemam-footer-bg">
+        <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
+        <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
+      </footer>
+    </section>
+  );
+};
+
+export default Blog; 

@@ -1,52 +1,89 @@
-.loading-spinner {
+.loading-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 32px;
+  padding: 2rem;
+  min-height: 200px;
 }
 
-.spinner {
-  border: 3px solid rgba(0, 191, 174, 0.1);
-  border-top: 3px solid var(--teal, #00bfae);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.loading-container.small {
+  min-height: 100px;
+  padding: 1rem;
 }
 
-.loading-spinner.gold .spinner {
-  border: 3px solid rgba(255, 215, 0, 0.1);
-  border-top: 3px solid var(--gold, #FFD700);
+.loading-container.large {
+  min-height: 400px;
+  padding: 3rem;
 }
 
-.loading-spinner.small .spinner {
-  width: 24px;
-  height: 24px;
-  border-width: 2px;
-}
-
-.loading-spinner.medium .spinner {
-  width: 40px;
-  height: 40px;
-  border-width: 3px;
-}
-
-.loading-spinner.large .spinner {
+.loading-spinner {
+  position: relative;
   width: 60px;
   height: 60px;
-  border-width: 4px;
 }
 
-.loading-spinner p {
-  color: var(--text, #181c23);
-  font-size: 0.9rem;
-  margin: 0;
-  opacity: 0.8;
+.loading-container.small .loading-spinner {
+  width: 40px;
+  height: 40px;
+}
+
+.loading-container.large .loading-spinner {
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid #00bfae;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+  border-top-color: #FFD700;
+  animation-delay: -0.4s;
+}
+
+.spinner-ring:nth-child(3) {
+  border-top-color: #181c23;
+  animation-delay: -0.8s;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  margin-top: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  text-align: center;
+}
+
+.loading-container.small .loading-text {
+  font-size: 0.875rem;
+}
+
+.loading-container.large .loading-text {
+  font-size: 1.125rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .loading-text {
+    color: #999;
+  }
 }
 
 /* Skeleton loading for content */

@@ -1,14 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './ZemamPage.css';
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaYoutube, FaCheckCircle, FaProjectDiagram, FaUserFriends, FaAward, FaReact, FaNodeJs, FaPython, FaDatabase, FaCloud, FaMobileAlt, FaBrain, FaServer, FaChevronUp, FaMapMarkerAlt, FaFileAlt } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaYoutube, FaCheckCircle, FaProjectDiagram, FaUserFriends, FaAward, FaReact, FaNodeJs, FaPython, FaDatabase, FaCloud, FaMobileAlt, FaBrain, FaServer, FaChevronUp, FaMapMarkerAlt, FaFileAlt, FaRocket, FaShieldAlt, FaLightbulb, FaHandshake, FaClock, FaUsers } from 'react-icons/fa';
 import logo from '../logo.png';
 
-const partners = [
-  { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
-  { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-  { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-  { name: 'Flutter', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png' },
-  { name: 'Firebase', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Firebase_Logo.svg' },
+const coreValues = [
+  {
+    icon: <FaRocket color="#00bfae" size={32} />,
+    title: "Innovation First",
+    description: "Cutting-edge solutions that push technological boundaries"
+  },
+  {
+    icon: <FaShieldAlt color="#FFD700" size={32} />,
+    title: "Security & Reliability",
+    description: "Enterprise-grade security with 99.9% uptime guarantee"
+  },
+  {
+    icon: <FaLightbulb color="#00bfae" size={32} />,
+    title: "Creative Excellence",
+    description: "Unique designs that stand out in the digital landscape"
+  },
+  {
+    icon: <FaHandshake color="#FFD700" size={32} />,
+    title: "Client Partnership",
+    description: "Long-term relationships built on trust and results"
+  },
+  {
+    icon: <FaClock color="#00bfae" size={32} />,
+    title: "Fast Delivery",
+    description: "Quick turnaround times without compromising quality"
+  },
+  {
+    icon: <FaUsers color="#FFD700" size={32} />,
+    title: "Expert Team",
+    description: "Skilled professionals with years of industry experience"
+  }
 ];
 
 const projectData = [
@@ -120,11 +145,16 @@ export const ZemamPage = () => {
             </div>
           </div>
         </section>
-        <div className="trusted-bar fade-in-section">
-          <span>Trusted by</span>
-          <div className="trusted-logos">
-            {partners.map((p, i) => (
-              <img key={i} src={p.logo} alt={p.name + ' logo'} title={p.name} className="partner-logo" />
+        <div className="core-values-bar fade-in-section">
+          <div className="core-values-grid">
+            {coreValues.map((value, i) => (
+              <div key={i} className="core-value-item">
+                <div className="value-icon">
+                  {value.icon}
+                </div>
+                <h3 className="value-title">{value.title}</h3>
+                <p className="value-description">{value.description}</p>
+              </div>
             ))}
           </div>
         </div>

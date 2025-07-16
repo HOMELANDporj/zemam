@@ -16,11 +16,20 @@
     "react-transition-group": "^4.4.5",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "npm run build && npx serve -s build",
+    "lighthouse": "npx lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html"
   },
   "eslintConfig": {
     "extends": [
