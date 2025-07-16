@@ -1,0 +1,205 @@
+.page-section {
+  padding: 6rem 0 4rem 0;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
+  margin-bottom: 3rem;
+  transition: background 0.3s, color 0.3s;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.accent-bar {
+  display: inline-block;
+  width: 32px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px solid var(--teal);
+  margin: 24px 0 32px 0;
+}
+
+.careers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: none;
+  border: 1.5px solid var(--teal);
+  border-radius: 1.2rem;
+  box-shadow: none;
+  padding: 2rem 2.5rem;
+  min-width: 220px;
+  max-width: 340px;
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.12);
+  border: 1.5px solid var(--gold);
+}
+
+.project-btn {
+  margin-top: 10px;
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.project-btn:hover, .project-btn:focus {
+  background: var(--gold);
+  color: var(--black);
+  transform: scale(1.06);
+}
+
+.zemam-footer {
+  border-top: 3px solid var(--teal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0 12px 0;
+  background: none;
+  margin-top: 48px;
+}
+.zemam-footer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+  border-radius: 2px;
+}
+.zemam-logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 8px;
+}
+
+.zemam-footer-bg {
+  position: relative;
+  width: 100vw;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border-top: 3px solid var(--teal);
+}
+.zemam-footer-bg-img {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.13;
+  z-index: 1;
+  pointer-events: none;
+}
+.zemam-footer-bg span {
+  position: relative;
+  z-index: 2;
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: rgba(24,28,35,0.85);
+  padding: 8px 24px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+}
+@media (max-width: 700px) {
+  .zemam-footer-bg {
+    min-height: 60px;
+  }
+  .zemam-footer-bg span {
+    font-size: 0.95rem;
+    padding: 6px 12px;
+  }
+  
+  .careers-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 16px;
+  }
+  
+  .project-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .page-section {
+    padding: 4rem 1rem 3rem 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .careers-list {
+    gap: 16px;
+    padding: 0 8px;
+  }
+  
+  .project-card {
+    padding: 1.2rem 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .page-section {
+    padding: 3rem 0.8rem 2rem 0.8rem;
+    border-radius: 1rem;
+  }
+} 
