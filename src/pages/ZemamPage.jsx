@@ -38,39 +38,44 @@ const coreValues = [
 
 const projectData = [
   {
-    title: 'Homeland Logistics',
+    title: 'User Homeland Logistics',
     desc: 'Mobile app for car owners, drivers & users to manage logistics services.',
-    img: 'https://source.unsplash.com/400x200/?app,technology',
+    img: require('../assets/user-homeland-logistics.jpg'),
   },
   {
-    title: 'Marik landing page',
-    desc: 'A landing page for marik industrial group',
-    img: 'https://source.unsplash.com/400x200/?dashboard,analytics',
+    title: 'Car Owner Homeland Logistics',
+    desc: 'Mobile app for car owners to manage their vehicles in the logistics network.',
+    img: require('../assets/car-owner-homeland-logistics.jpg'),
   },
   {
-    title: 'Marik reporting app',
-    desc: 'A mobile app for internal reporting system for marik industrial group',
-    img: 'https://source.unsplash.com/400x200/?mobile,ui',
+    title: 'Driver Homeland Logistics',
+    desc: 'Mobile app for drivers to manage logistics operations and trips.',
+    img: require('../assets/driver-homeland-logistics.jpg'),
+  },
+  {
+    title: 'Marik Reporting',
+    desc: 'Industrial reporting and analytics platform for Marik Group.',
+    img: require('../assets/marik-reporting.png'),
   },
   {
     title: 'Online Bus Reservation',
     desc: 'Web platform for booking and managing bus trips with ease.',
-    img: 'https://source.unsplash.com/400x200/?bus,booking',
+    img: require('../assets/online-bus-reservation.png'),
   },
   {
-    title: 'Sign Language Translator',
-    desc: 'AI model translating Ethiopian sign language to readable text.',
-    img: 'https://source.unsplash.com/400x200/?ai,sign-language',
+    title: 'Ethiopian Orthodox Church Mezmur Lyrics',
+    desc: 'Mobile app for Ethiopian Orthodox Church hymns and liturgical texts.',
+    img: require('../assets/orthodox-mezmur-lyrics.jpg'),
   },
   {
-    title: 'Store Management',
-    desc: 'Inventory and sales system tailored for SMEs.',
-    img: 'https://source.unsplash.com/400x200/?store,inventory',
+    title: 'Digital Menu',
+    desc: 'Interactive digital menu system for restaurants and food establishments.',
+    img: require('../assets/digital-menu.jpg'),
   },
   {
-    title: 'Job Agency Portal',
-    desc: 'Web & mobile job marketplace connecting employers and job seekers.',
-    img: 'https://source.unsplash.com/400x200/?job,portal',
+    title: 'Dembel City Center Shop Management',
+    desc: 'Vue.js-based shop management system for Dembel City Center.',
+    img: require('../assets/dembel-shop-management.jpg'),
   },
 ];
 
@@ -205,7 +210,7 @@ export const ZemamPage = () => {
           </div>
           <div>
             <FaAward color="#00bfae" size={32} style={{marginBottom: 8}} />
-            <h2>+3</h2>
+            <h2>+1</h2>
             <p>Years Experience</p>
           </div>
           <div>
@@ -230,28 +235,42 @@ export const ZemamPage = () => {
           </div>
         </section>
         <hr className="section-divider" />
-        {/* Enhanced Projects section with modal */}
+        {/* Interactive Floating Projects Gallery */}
         <section className="project-section fade-in-section" id="projects" aria-label="Previous Projects">
           <h2 className="section-title"><span className="accent-bar"></span>Previous Projects</h2>
-          <div className="project-marquee">
-            <div className="project-marquee-track">
-              {projectData.map((proj, idx) => (
-                <div
-                  key={idx}
-                  className="project-card enhanced fade-in-section"
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`View details for ${proj.title}`}
-                  onClick={() => setModalProject(proj)}
-                  onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setModalProject(proj); }}
-                >
-                  <img src={proj.img} alt={proj.title + ' screenshot'} className="project-img" />
-                  <h3>{proj.title}</h3>
-                  <p>{proj.desc}</p>
-                  <span className="project-btn">View Project</span>
+          <div className="floating-projects-gallery">
+            {projectData.map((proj, idx) => (
+              <div
+                key={idx}
+                className="floating-project-card"
+                style={{ 
+                  animationDelay: `${idx * 0.2}s`,
+                  transform: `translateY(${idx % 2 === 0 ? '0px' : '20px'})`
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View details for ${proj.title}`}
+                onClick={() => setModalProject(proj)}
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setModalProject(proj); }}
+              >
+                <div className="project-card-inner">
+                  <div className="project-image-wrapper">
+                    <img src={proj.img} alt={proj.title + ' screenshot'} className="project-card-image" />
+                    <div className="project-overlay">
+                      <div className="project-overlay-content">
+                        <h3 className="project-overlay-title">{proj.title}</h3>
+                        <p className="project-overlay-desc">{proj.desc}</p>
+                        <span className="project-overlay-btn">View Details</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="project-card-info">
+                    <h3 className="project-card-title">{proj.title}</h3>
+                    <p className="project-card-desc">{proj.desc}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
         {modalProject && (
