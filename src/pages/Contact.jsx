@@ -2,6 +2,7 @@ import React from 'react';
 import ContactForm from '../components/ContactForm';
 import './Contact.css';
 
+
 const Contact = () => (
   <section className="page-section fade-in-section">
     <h1 className="section-title"><span className="accent-bar"></span>Contact Us</h1>
@@ -52,11 +53,9 @@ const Contact = () => (
       </div>
     </div>
     
-    <footer className="zemam-footer-bg">
-      <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
-      <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
-    </footer>
+
   </section>
 );
 
 export default Contact;
+ 

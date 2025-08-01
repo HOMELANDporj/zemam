@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaUsers, FaTrophy, FaGlobe, FaCogs, FaLightbulb, FaHandshake, FaRocket, FaHeart, FaCalendarAlt, FaAward, FaDatabase, FaCube, FaFileAlt } from 'react-icons/fa';
 import './About.css';
+import Footer from '../components/Footer';
 
 const values = [
   { icon: <FaLightbulb color="#FFD700" size={32} />, title: 'Innovation', desc: 'We embrace new ideas and technologies to drive progress.' },
@@ -114,11 +115,13 @@ const About = () => {
         </div>
       )}
       
-      <footer className="zemam-footer-bg">
+      {/* <footer className="zemam-footer-bg">
         <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
         <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
-      </footer>
+      </footer> */}
+   
     </section>
+    
   );
 };
 

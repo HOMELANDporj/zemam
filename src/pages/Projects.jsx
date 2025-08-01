@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaExternalLinkAlt, FaMobile, FaGlobe, FaBrain, FaStore, FaBriefcase, FaMusic, FaUtensils, FaTimes } from 'react-icons/fa';
 import './Projects.css';
+import Footer from '../components/Footer';
 
 const projects = [
   { 
@@ -234,11 +235,7 @@ const Projects = () => {
           </div>
         </div>
       )}
-      
-      <footer className="zemam-footer-bg">
-        <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
-        <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
-      </footer>
+
     </section>
   );
 };

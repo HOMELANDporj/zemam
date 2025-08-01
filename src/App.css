@@ -49,13 +49,15 @@ body {
   color: #181c23;
   text-decoration: none;
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.03em;
 }
 
 .nav-logo img {
-  height: 36px;
+  height: 90px;
   width: auto;
+  object-fit: contain;
+  margin: -10px 0;
 }
 
 .nav-links {
@@ -171,11 +173,17 @@ body {
   }
   
   .nav-logo {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    gap: 6px;
   }
   
   .nav-logo img {
-    height: 32px;
+    height: 70px;
+    margin: -8px 0;
+  }
+  
+  .nav-logo span {
+    font-size: 0.9rem;
   }
   
   .mobile-menu-btn {
@@ -186,14 +194,14 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 300px;
     height: 100vh;
     background: linear-gradient(135deg, #00bfae 0%, #FFD700 100%);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 80px 32px 32px 32px;
-    gap: 16px;
+    padding: 80px 24px 32px 24px;
+    gap: 12px;
     transition: right 0.3s ease;
     box-shadow: -4px 0 20px rgba(0,0,0,0.1);
   }
@@ -204,10 +212,11 @@ body {
   
   .nav-links a {
     width: 100%;
-    padding: 16px 20px;
+    padding: 14px 18px;
     border-radius: 12px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: left;
+    font-weight: 600;
   }
   
   .page-section {
@@ -224,16 +233,28 @@ body {
   }
   
   .nav-logo {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    gap: 4px;
   }
   
   .nav-logo img {
-    height: 28px;
+    height: 60px;
+    margin: -6px 0;
+  }
+  
+  .nav-logo span {
+    font-size: 0.8rem;
   }
   
   .nav-links {
     width: 100%;
     right: -100%;
+    padding: 70px 20px 24px 20px;
+  }
+  
+  .nav-links a {
+    padding: 12px 16px;
+    font-size: 0.95rem;
   }
   
   .page-section {
@@ -251,29 +272,47 @@ body {
   .mobile-menu-logo {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     margin-top: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+    padding: 16px;
+    border-bottom: 1px solid rgba(24, 28, 35, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
   }
+  
   .mobile-menu-logo img {
-    width: 100%;
-    height: 64px;
+    width: 120px;
+    height: 50px;
     object-fit: contain;
     object-position: center;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
-    margin: 0;
-    padding: 0;
+    margin-bottom: 8px;
     display: block;
   }
+  
   .mobile-menu-logo span {
     color: #181c23;
-    font-weight: 800;
-    font-size: 1.2rem;
-    letter-spacing: 0.03em;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-menu-logo {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .mobile-menu-logo img {
+    width: 100px;
+    height: 40px;
+  }
+  
+  .mobile-menu-logo span {
+    font-size: 0.9rem;
   }
 }

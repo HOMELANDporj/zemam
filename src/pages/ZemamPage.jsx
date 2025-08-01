@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ZemamPage.css';
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaYoutube, FaCheckCircle, FaProjectDiagram, FaUserFriends, FaAward, FaReact, FaNodeJs, FaPython, FaDatabase, FaCloud, FaMobileAlt, FaBrain, FaServer, FaChevronUp, FaMapMarkerAlt, FaFileAlt, FaRocket, FaShieldAlt, FaLightbulb, FaHandshake, FaClock, FaUsers } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaYoutube, FaCheckCircle, FaProjectDiagram, FaUserFriends, FaAward, FaReact, FaNodeJs, FaPython, FaDatabase, FaCloud, FaMobileAlt, FaBrain, FaServer, FaChevronUp, FaMapMarkerAlt, FaFileAlt, FaRocket, FaShieldAlt, FaLightbulb, FaHandshake, FaClock, FaUsers, FaTelegram } from 'react-icons/fa';
 import logo from '../logo.png';
+
 
 const coreValues = [
   {
@@ -133,9 +134,6 @@ export const ZemamPage = () => {
       <header className="zemam-header">
         <nav className="zemam-navbar" aria-label="Main Navigation">
           {/* Remove logo from navbar, will be in footer */}
-          {/* <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-          </button> */}
         </nav>
         <section className="zemam-hero fade-in-section">
           <div className="hero-banner-bg">
@@ -304,47 +302,9 @@ export const ZemamPage = () => {
             </div>
             <div className="contact-reply-note">We reply within <b>1 business day</b>.</div>
           </div>
-
-          <div className="social-media">
-            <h3>Follow Us:</h3>
-            <ul className="social-media-icons">
-              <li>
-                <a href="https://www.facebook.com/zemamtech" target="_blank" rel="noreferrer" aria-label="Facebook">
-                  <FaFacebook size={32} />
-                </a>
-              </li>
-              <li>
-                <a href="https://twitter.com/zemamtech" target="_blank" rel="noreferrer" aria-label="Twitter">
-                  <FaTwitter size={32} />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/company/zemamtech" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                  <FaLinkedin size={32} />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/zemamtech" target="_blank" rel="noreferrer" aria-label="Instagram">
-                  <FaInstagram size={32} />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.tiktok.com/@zemamtech" target="_blank" rel="noreferrer" aria-label="TikTok">
-                  <FaTiktok size={32} />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.youtube.com/@zemamtech" target="_blank" rel="noreferrer" aria-label="YouTube">
-                  <FaYoutube size={32} />
-                </a>
-              </li>
-            </ul>
-          </div>
         </section>
       </main>
-      <footer className="zemam-footer-cover">
-        <span>&copy; {year} Zemam Technologies</span>
-      </footer>
+  
     </div>
   );
 }

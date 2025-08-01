@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaCogs, FaBrain, FaCloud, FaLock, FaChartLine, FaPlug, FaShoppingCart, FaUsers, FaDatabase, FaAward, FaCube } from 'react-icons/fa';
 import './Services.css';
+import Footer from '../components/Footer';
 
 const services = [
   {
@@ -134,10 +135,7 @@ const Services = () => {
           </div>
         </div>
       )}
-      <footer className="zemam-footer-bg">
-        <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
-        <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
-      </footer>
+    
     </section>
   );
 };

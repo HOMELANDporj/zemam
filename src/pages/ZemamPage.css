@@ -599,13 +599,13 @@ a:hover, a:focus {
   box-shadow: 0 4px 32px 0 var(--teal);
   border-color: var(--gold);
   z-index: 2;
-}
+  }
 
 /* 8. Footer accent */
 .zemam-footer {
   border-top: 3px solid var(--teal);
   position: relative;
-}
+  }
 .zemam-footer::before {
   content: '';
   display: block;
@@ -617,7 +617,7 @@ a:hover, a:focus {
   height: 3px;
   background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
   border-radius: 2px;
-}
+  }
 
 /* --- Enhanced Previous Projects Section --- */
 .project-section {
@@ -629,8 +629,8 @@ a:hover, a:focus {
 }
 .project-marquee-track {
   gap: 48px;
-}
-.project-card.enhanced {
+  }
+  .project-card.enhanced {
   cursor: pointer;
   position: relative;
   background: none;
@@ -665,7 +665,7 @@ a:hover, a:focus {
   opacity: 0;
   transition: opacity var(--transition);
   z-index: 2;
-}
+  }
 .project-card.enhanced:hover::after, .project-card.enhanced:focus::after {
   opacity: 0.08;
 }
@@ -739,14 +739,14 @@ a:hover, a:focus {
   flex-direction: column;
   align-items: center;
   animation: fadeInUpSection 0.5s cubic-bezier(.77,0,.18,1);
-}
+  }
 .project-modal .modal-img {
   width: 100%;
   height: 140px;
   object-fit: cover;
   border-radius: var(--radius);
   margin-bottom: 18px;
-}
+  }
 .project-modal h3 {
   color: var(--gold);
   font-size: 1.4rem;
@@ -907,7 +907,7 @@ a:hover, a:focus {
   text-decoration: none;
   transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition);
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
-}
+  }
 .zemam-cta.secondary {
   background: var(--teal);
   color: var(--white);
@@ -980,81 +980,9 @@ a:hover, a:focus {
   opacity: 0.85;
 }
 
-.zemam-footer-cover {
-  width: 100vw;
-  background: var(--black);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  border-top: 3px solid var(--teal);
-  min-height: 80px;
-}
-.zemam-footer-cover span {
-  color: var(--gold);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-top: 24px;
-  margin-bottom: 12px;
-  z-index: 2;
-  position: relative;
-  background: rgba(24,28,35,0.85);
-  padding: 6px 18px;
-  border-radius: 999px;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
-}
+/* Footer Styles - Removed, now using separate Footer component */
 
-@media (max-width: 700px) {
-  .hero-banner-img {
-    height: 180px;
-  }
-  .hero-content {
-    padding-top: 60px;
-    padding-bottom: 24px;
-  }
-  .about-flex {
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-  }
-  .about-ceo-img {
-    width: 80px;
-    height: 80px;
-  }
-  .zemam-footer-cover {
-    min-height: 40px;
-  }
-  .zemam-footer-cover span {
-    font-size: 0.95rem;
-    margin-top: 8px;
-  }
-  
-  /* Core Values Responsive */
-  .core-values-bar {
-    padding: 24px 16px;
-  }
-  
-  .core-values-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
-  .core-value-item {
-    padding: 24px 20px;
-  }
-  
-  .value-title {
-    font-size: 1.2rem;
-  }
-  
-  .value-description {
-    font-size: 0.95rem;
-  }
-}
-
+/* Brand showcase: make logos larger, no border */
 .brand-showcase {
   display: flex;
   justify-content: center;
@@ -1067,7 +995,7 @@ a:hover, a:focus {
   height: auto;
   width: 45vw;
   max-width: 600px;
-  min-width: 120px;
+    min-width: 120px;
   object-fit: contain;
   background: none;
   border-radius: 18px;
@@ -1178,7 +1106,7 @@ a:hover, a:focus {
 }
 
 .cv-content {
-  width: 100%;
+    width: 100%;
   height: 100%;
   overflow: auto;
   display: flex;
@@ -1552,3 +1480,4 @@ a:hover, a:focus {
     height: 35px;
   }
 }
+

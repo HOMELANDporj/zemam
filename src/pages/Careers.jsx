@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaCalendar, FaUser, FaTag, FaArrowRight, FaSearch, FaFilter, FaBookOpen, FaLightbulb, FaRocket, FaChartLine } from 'react-icons/fa';
 import './Careers.css';
+import Footer from '../components/Footer';
 
 const blogPosts = [
   {
@@ -182,10 +183,7 @@ const Blog = () => {
         </div>
       </div>
 
-      <footer className="zemam-footer-bg">
-        <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
-        <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
-      </footer>
+      <Footer />
     </section>
   );
 };
