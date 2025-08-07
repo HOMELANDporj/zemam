@@ -73,11 +73,11 @@ const projectData = [
     desc: 'Interactive digital menu system for restaurants and food establishments.',
     img: require('../assets/digital-menu.jpg'),
   },
-  {
-    title: 'Dembel City Center Shop Management',
-    desc: 'Vue.js-based shop management system for Dembel City Center.',
-    img: require('../assets/dembel-shop-management.jpg'),
-  },
+  // {
+  //   title: 'Dembel City Center Shop Management',
+  //   desc: 'Vue.js-based shop management system for Dembel City Center.',
+  //   img: require('../assets/dembel-shop-management.jpg'),
+  // },
 ];
 
 const testimonials = [
