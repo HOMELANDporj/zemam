@@ -104,16 +104,16 @@ const projects = [
     image: 'digital-menu.jpg',
     fullDesc: 'Interactive digital menu system designed for restaurants and food establishments. Features include dynamic menu updates, allergen information, nutritional details, order integration, and multi-language support. Built with Flutter for responsive design and Firebase for real-time menu management and analytics.'
   },
-  { 
-    title: 'Dembel City Center Shop Management', 
-    desc: 'Vue.js-based shop management system for Dembel City Center.', 
-    stack: 'Vue.js, Firebase', 
-    link: '#',
-    category: 'Web App',
-    icon: <FaStore color="#FFD700" size={24} />,
-    image: 'dembel-shop-management.jpg',
-    fullDesc: 'Comprehensive shop management system specifically designed for Dembel City Center retail operations. Features include inventory management, sales tracking, customer relationship management, reporting dashboards, and multi-store support. Built with Vue.js for reactive UI and Firebase for scalable backend services and real-time data synchronization.'
-  },
+  // { 
+  //   title: 'Dembel City Center Shop Management', 
+  //   desc: 'Vue.js-based shop management system for Dembel City Center.', 
+  //   stack: 'Vue.js, Firebase', 
+  //   link: '#',
+  //   category: 'Web App',
+  //   icon: <FaStore color="#FFD700" size={24} />,
+  //   image: 'dembel-shop-management.jpg',
+  //   fullDesc: 'Comprehensive shop management system specifically designed for Dembel City Center retail operations. Features include inventory management, sales tracking, customer relationship management, reporting dashboards, and multi-store support. Built with Vue.js for reactive UI and Firebase for scalable backend services and real-time data synchronization.'
+  // },
 ];
 
 const categories = ['All', 'Mobile App', 'Web App', 'AI/ML'];
