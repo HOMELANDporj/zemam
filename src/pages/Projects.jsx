@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FaExternalLinkAlt, FaMobile, FaGlobe, FaBrain, FaStore, FaBriefcase, FaMusic, FaUtensils, FaTimes } from 'react-icons/fa';
 import './Projects.css';
-import Footer from '../components/Footer';
 
 const projects = [
   { 
@@ -41,7 +40,7 @@ const projects = [
     link: '#',
     category: 'Web App',
     icon: <FaGlobe color="#FFD700" size={24} />,
-    image: 'marik-reporting.png',
+    image: 'https://source.unsplash.com/400x200/?dashboard,analytics',
     fullDesc: 'Comprehensive industrial reporting and analytics platform for Marik Group. Features include real-time data visualization, automated report generation, KPI tracking, and executive dashboards. Built with React for responsive UI and Node.js for robust backend services with data processing capabilities.'
   },
   { 
@@ -51,7 +50,7 @@ const projects = [
     link: '#',
     category: 'Web App',
     icon: <FaGlobe color="#00bfae" size={24} />,
-    image: 'online-bus-reservation.png',
+    image: 'https://source.unsplash.com/400x200/?bus,booking',
     fullDesc: 'Complete web-based bus reservation system with seat selection, payment processing, and booking management. Features include user registration, route planning, ticket generation, and admin panel for bus operators. Built with vanilla web technologies for maximum compatibility and SQL for reliable data management.'
   },
   { 
@@ -61,7 +60,7 @@ const projects = [
     link: '#',
     category: 'AI/ML',
     icon: <FaBrain color="#FFD700" size={24} />,
-    image: 'logo.png',
+    image: 'https://source.unsplash.com/400x200/?ai,sign-language',
     fullDesc: 'Innovative AI-powered sign language translation system specifically designed for Ethiopian sign language. Features include real-time hand gesture recognition, text-to-sign conversion, and educational modules. Built with Python and TensorFlow for advanced machine learning capabilities and computer vision processing.'
   },
   { 
@@ -71,7 +70,7 @@ const projects = [
     link: '#',
     category: 'Web App',
     icon: <FaStore color="#00bfae" size={24} />,
-    image: 'logo.png',
+    image: 'https://source.unsplash.com/400x200/?store,inventory',
     fullDesc: 'Comprehensive store management system for small and medium enterprises. Features include inventory tracking, sales analytics, customer management, supplier management, and financial reporting. Built with React for modern UI and SQL for reliable data storage and complex querying capabilities.'
   },
   { 
@@ -81,7 +80,7 @@ const projects = [
     link: '#',
     category: 'Web App',
     icon: <FaBriefcase color="#FFD700" size={24} />,
-    image: 'logo.png',
+    image: 'https://source.unsplash.com/400x200/?job,portal',
     fullDesc: 'Full-featured job marketplace connecting employers with job seekers. Features include job posting, application tracking, resume builder, interview scheduling, and employer verification. Built with Flutter for cross-platform compatibility and Firebase for scalable backend services and real-time notifications.'
   },
   { 
@@ -91,7 +90,7 @@ const projects = [
     link: '#',
     category: 'Mobile App',
     icon: <FaMusic color="#FFD700" size={24} />,
-    image: 'orthodox-mezmur-lyrics.jpg',
+    image: 'https://source.unsplash.com/400x200/?church,music',
     fullDesc: 'Dedicated mobile application for Ethiopian Orthodox Church hymns and liturgical texts. Features include searchable lyrics database, audio playback, offline access, bookmarking, and liturgical calendar integration. Built with Flutter for smooth performance and Firebase for content management and user preferences.'
   },
   { 
@@ -101,19 +100,19 @@ const projects = [
     link: '#',
     category: 'Mobile App',
     icon: <FaUtensils color="#00bfae" size={24} />,
-    image: 'digital-menu.jpg',
+    image: 'https://source.unsplash.com/400x200/?restaurant,menu',
     fullDesc: 'Interactive digital menu system designed for restaurants and food establishments. Features include dynamic menu updates, allergen information, nutritional details, order integration, and multi-language support. Built with Flutter for responsive design and Firebase for real-time menu management and analytics.'
   },
-  // { 
-  //   title: 'Dembel City Center Shop Management', 
-  //   desc: 'Vue.js-based shop management system for Dembel City Center.', 
-  //   stack: 'Vue.js, Firebase', 
-  //   link: '#',
-  //   category: 'Web App',
-  //   icon: <FaStore color="#FFD700" size={24} />,
-  //   image: 'dembel-shop-management.jpg',
-  //   fullDesc: 'Comprehensive shop management system specifically designed for Dembel City Center retail operations. Features include inventory management, sales tracking, customer relationship management, reporting dashboards, and multi-store support. Built with Vue.js for reactive UI and Firebase for scalable backend services and real-time data synchronization.'
-  // },
+  { 
+    title: 'Dembel City Center Shop Management', 
+    desc: 'Vue.js-based shop management system for Dembel City Center.', 
+    stack: 'Vue.js, Firebase', 
+    link: '#',
+    category: 'Web App',
+    icon: <FaStore color="#FFD700" size={24} />,
+    image: 'https://source.unsplash.com/400x200/?shop,management',
+    fullDesc: 'Comprehensive shop management system specifically designed for Dembel City Center retail operations. Features include inventory management, sales tracking, customer relationship management, reporting dashboards, and multi-store support. Built with Vue.js for reactive UI and Firebase for scalable backend services and real-time data synchronization.'
+  },
 ];
 
 const categories = ['All', 'Mobile App', 'Web App', 'AI/ML'];
@@ -176,7 +175,7 @@ const Projects = () => {
                 className="project-image"
                 onError={(e) => {
                   console.log('Image failed to load:', p.image);
-                  e.target.src = 'https://picsum.photos/400/200?random=99';
+                  e.target.src = 'https://source.unsplash.com/400x200/?technology';
                 }}
               />
               <div className="project-category">
@@ -213,7 +212,7 @@ const Projects = () => {
                   className="project-modal-image"
                   onError={(e) => {
                     console.log('Modal image failed to load:', modalProject.image);
-                    e.target.src = 'https://picsum.photos/400/200?random=99';
+                    e.target.src = 'https://source.unsplash.com/400x200/?technology';
                   }}
                 />
                 <div className="project-modal-category">
@@ -235,7 +234,11 @@ const Projects = () => {
           </div>
         </div>
       )}
-
+      
+      <footer className="zemam-footer-bg">
+        <img src={require('../logo.png')} alt="Zemam Technologies Logo" className="zemam-footer-bg-img" />
+        <span>&copy; {new Date().getFullYear()} Zemam Technologies</span>
+      </footer>
     </section>
   );
 };

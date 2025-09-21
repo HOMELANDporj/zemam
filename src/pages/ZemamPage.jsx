@@ -137,7 +137,7 @@ export const ZemamPage = () => {
         </nav>
         <section className="zemam-hero fade-in-section">
           <div className="hero-banner-bg">
-            <img src={require('../assets/banner.jpg')} alt="Zemam Technologies Banner" className="hero-banner-img" />
+            <img src={require('../assets/banner.png')} alt="Zemam Technologies Banner" className="hero-banner-img" />
           </div>
           <div className="hero-content">
             <h1 className="zemam-hero-title">Empowering Digital Transformation</h1>
